@@ -1,6 +1,6 @@
 import styles from "./Main.module.css";
-import { Links } from "../components/Links";
 import { Headline } from "../components/Headline";
+import { Links } from "../components/Links";
 
 export  function Main(props) {
   return (
@@ -12,3 +12,4 @@ export  function Main(props) {
       </main>
   );
 }
+
