@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 
@@ -9,10 +9,13 @@ import { Header } from "src/components/Header";
 export default function Home() {
   const [count,setCount] = useState(1);
 
-  const HandleClick = (e) => {
-    setCount(count => count +1);
-    setCount(count => count +1);
-  }
+  const HandleClick = useCallback((e) => {
+    console.log(count);
+
+    if(count <= 10) {
+      setCount(count => count +1);
+    }
+  },[count]);
 
   useEffect(() => {
     console.log('マウント時');
