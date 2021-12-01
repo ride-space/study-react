@@ -17,7 +17,17 @@ export default function Home() {
     }
   },[count]);
 
-  const HandleDisplay = useCallback(() => {setIsShow((isShow)=>!isShow)},[])
+  const HandleAdd = useCallback(
+    function () {
+      setArray((prevArray) => {
+        if (prevArray.some((item) => item === text)) {
+          alert("同じ要素が存在します。");
+        }
+        return [...prevArray, text];;
+      });
+    },
+    [text]
+  );
 
   useEffect(() => {
     console.log('マウント時');
