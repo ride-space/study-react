@@ -7,7 +7,7 @@ import { Header } from "src/components/Header";
 import styles from "src/styles/Home.module.css";
 
 export default function About(props) {
-  const { count, isShow, HandleClick, HandleDisplay, text, array, HandleChange, HandleAdd } = props;
+  const { count,doubleCounter, isShow, HandleClick, HandleDisplay, text, array, HandleChange, HandleAdd } = props;
 
   return (
     <div className={styles.container}>
@@ -16,7 +16,7 @@ export default function About(props) {
       </Head>
       <Header />
 
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doubleCounter}</h1> : null}
       <button onClick={HandleClick}>ボタン</button>
       <button onClick={HandleDisplay}>{isShow ? "表示" : "非表示"}</button>
 

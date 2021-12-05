@@ -1,6 +1,7 @@
 import styles from "src/components/Headline/Headline.module.css";
 
 export function Headline(props) {
+  
   return (
     <div>
       <h1 className={styles.title}>
