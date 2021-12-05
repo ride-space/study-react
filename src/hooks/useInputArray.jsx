@@ -14,8 +14,9 @@ export const useInputArray = () => {
   const HandleAdd = useCallback(
     function () {
       setArray((prevArray) => {
-        if (prevArray.some((item) => item === text)) {
+        if (prevArray.includes(text)) {
           alert("同じ要素が存在します。");
+          return prevArray;
         }
         return [...prevArray, text];
       });

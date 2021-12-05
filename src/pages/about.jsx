@@ -6,8 +6,7 @@ import { Header } from "src/components/Header";
 
 import styles from "src/styles/Home.module.css";
 
-export default function About(props) {
-  const { count,doubleCounter, isShow, HandleClick, HandleDisplay, text, array, HandleChange, HandleAdd } = props;
+const About = (props) => {
 
   return (
     <div className={styles.container}>
@@ -16,14 +15,14 @@ export default function About(props) {
       </Head>
       <Header />
 
-      {isShow ? <h1>{doubleCounter}</h1> : null}
-      <button onClick={HandleClick}>ボタン</button>
-      <button onClick={HandleDisplay}>{isShow ? "表示" : "非表示"}</button>
+      {props.isShow ? <h1>{props.doubleCounter}</h1> : null}
+      <button onClick={props.HandleClick}>ボタン</button>
+      <button onClick={props.HandleDisplay}>{props.isShow ? "表示" : "非表示"}</button>
 
-      <input type="text" value={text} onChange={HandleChange} />
-      <button onClick={HandleAdd}>追加</button>
+      <input type="text" value={props.text} onChange={props.HandleChange} />
+      <button onClick={props.HandleAdd}>追加</button>
       <ul>
-        {array.map((item) => {
+        {props.array.map((item) => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
@@ -35,3 +34,6 @@ export default function About(props) {
     </div>
   );
 }
+
+export default About;
+
