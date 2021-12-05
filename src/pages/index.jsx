@@ -4,14 +4,10 @@ import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-import { useLightBlue } from "src/hooks/useLightBlue";
 
-export default function Home() {
-  const { count, isShow, HandleClick, HandleDisplay } = useCounter();
-  const { text, array, HandleChange, HandleAdd } = useInputArray();
-  useLightBlue();
+export default function Home(props) {
+  const { count, isShow, HandleClick, HandleDisplay, text, array, HandleChange, HandleAdd } = props;
+
 
 
   return (
