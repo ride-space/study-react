@@ -1,5 +1,6 @@
 // import React, { useCallback, useEffect, useReducer } from "react";
 import { usePosts } from "src/hooks/usePosts";
+import Link from 'next/link'
 
 // const initialState = {
 //   data: [],
@@ -27,8 +28,6 @@ import { usePosts } from "src/hooks/usePosts";
 //       throw new Error("no such action type!");
 //   }
 // }
-
-
 
 export const Posts = () => {
   const {data, error, isLoading, isEmpty} = usePosts();
@@ -65,7 +64,13 @@ export const Posts = () => {
   return (
     <ol>
       {data.map((post) => {
-        return <li key={post.id}>{post.title}</li>;
+        return (
+          <li key={post.id}>
+            <Link href={`/post/${post.id}`}>
+            <a>{post.title}</a>
+            </Link>
+            </li>
+          );
       })}
     </ol>
   );

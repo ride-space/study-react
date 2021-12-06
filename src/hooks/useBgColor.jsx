@@ -1,8 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import {useEffect, useMemo} from "react";
 
-
-
 export const useBgColor = () => {
   const router = useRouter();
   const BgColor = useMemo(() => {

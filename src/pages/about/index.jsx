@@ -2,8 +2,6 @@ import Head from "next/head";
 import { Footer } from "src//components/Footer";
 import { Main } from "src//components/Main";
 import { Header } from "src/components/Header";
-
-
 import styles from "src/styles/Home.module.css";
 
 const About = (props) => {
@@ -14,7 +12,6 @@ const About = (props) => {
         <title>About Page</title>
       </Head>
       <Header />
-
       {props.isShow ? <h1>{props.doubleCounter}</h1> : null}
       <button onClick={props.HandleClick}>ボタン</button>
       <button onClick={props.HandleDisplay}>{props.isShow ? "表示" : "非表示"}</button>
@@ -26,10 +23,7 @@ const About = (props) => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
-
-
       <Main page="about" />
-
       <Footer />
     </div>
   );
