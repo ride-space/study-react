@@ -2,8 +2,8 @@ import Link from "next/link";
 import styles from "src/components/Header/Header.module.css";
 
 const NAV_ITEMS = [
+  { href: "/", label: "Index" },
   { href: "/posts", label: "Posts" },
-  { href: "/about", label: "About" },
 ];
 
 export const Header = () => {
