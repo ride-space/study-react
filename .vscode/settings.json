@@ -1,4 +1,4 @@
 {
-  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",//絶対パスに設定されるようにする設定
   "editor.formatOnSave": true//自動的にフォーマットされるようにする設定
 }
