@@ -1,4 +1,4 @@
-import { useUsers } from "src/hooks/useUsers";
+import { useUsers } from "src/hooks/useFetchArray";
 import Link from "next/dist/client/link";
 
 export const Users = () => {
