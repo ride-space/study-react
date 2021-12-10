@@ -1,7 +1,7 @@
 import { usePosts } from "src/hooks/usePosts";
 import Link from "next/link";
 
-export const Posts = () => {
+export const PostsByUserId = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
