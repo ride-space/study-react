@@ -3,17 +3,31 @@ import { Header } from "src/components/Header";
 import { Comment } from "src/components/Comment";
 import { SWRConfig } from "swr";
 
+export const getStaticPaths = async () => {
+  //ctxにわたすためのIDを取得するfetch
+  const comments = await fetch('https://jsonplaceholder.typicode.com/comments');
+  const commentsData = comments.json();
+  const paths = commentsData.map((comment) => ({
+    params: {id: comment.id.String()},
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
 //SSGを行う際、サーバー側で動くコード
 export const getStaticProps = async (ctx) => {
-  const { id } = ctx.query;
-  const COMMENTS_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
-  const comments = await fetch(COMMENTS_API_URL);
-  const commentsData = await comments.json();
+  const { id } = ctx.params;
+  const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
+  const comment = await fetch(COMMENT_API_URL);
+  const commentData = await comment.json();
 
   return {
     props: {
       fallback: {
-        COMMENTS_API_URL: commentsData,
+        [COMMENT_API_URL]: commentData,
       },
     }
   };
