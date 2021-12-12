@@ -4,12 +4,13 @@ import { UserByUserId } from "src/components/User/UserByUserId";
 import { useRouter } from "next/dist/client/router";
 import useSWR from "swr";
 import { fetcher } from "src/utills/fetcher";
+import { API_URL } from "src/utills/const";
 
 export const Post = () => {
   const router = useRouter();
   const { data, error} = useSWR(
     router.query.id
-      ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
+      ? `${API_URL}/posts/${router.query.id}`
       : null,
     fetcher
   );

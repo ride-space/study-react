@@ -1,3 +1,4 @@
+import { API_URL } from "src/utills/const";
 import { fetcher } from "src/utills/fetcher";
 import useSWRImmutable from "swr/immutable";
 
@@ -13,8 +14,6 @@ export const useFetchArray = (url) => {
     isEmpty: data && data.length === 0,
   };
 };
-
-const API_URL = "https://jsonplaceholder.typicode.com";
 
 export const useComments = () => {
   return useFetchArray(`${API_URL}/comments`);

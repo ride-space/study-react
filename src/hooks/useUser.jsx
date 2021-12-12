@@ -1,11 +1,12 @@
 import { useRouter } from "next/dist/client/router";
+import { API_URL } from "src/utills/const";
 import { fetcher } from "src/utills/fetcher";
 import useSWR from "swr";
 
 export const useUser = () => {
   const router = useRouter();
   const { data, error } = useSWR(
-    `https://jsonplaceholder.typicode.com/users/${router.query.id}`,
+    `${API_URL}/users/${router.query.id}`,
     fetcher
   );
 
