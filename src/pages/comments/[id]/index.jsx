@@ -16,6 +16,7 @@ export const getStaticPaths = async () => {
   return {
     paths,
     fallback: "blocking",
+    revalidate: 60,
   };
 };
 
@@ -40,6 +41,7 @@ export const getStaticProps = async (ctx) => {
         [COMMENT_API_URL]: commentData,
       },
     },
+    revalidate: 60,
   };
 };
 
