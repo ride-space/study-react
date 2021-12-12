@@ -2,19 +2,24 @@ import { Header } from "src/components/Header";
 import { User } from "src/components/User";
 import { SWRConfig } from "swr";
 
-const sleep = (ms) => {new Promise((resolve) => setTimeout(resolve,ms))};
-
 //SSRを行う際、サーバー側で動くコード
 export const getServerSideProps = async (ctx) => {
+  //user一覧のfetch
   const { id } = ctx.query;
-  const API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
-  const user = await fetch(API_URL);
+  const USER_API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
+  const user = await fetch(USER_API_URL);
   const userData = await user.json();
+  //userの投稿一覧のfetch
+  const { id: postId } = ctx.query;
+  const POST_API_URL = `https://jsonplaceholder.typicode.com/posts?userId=${postId}`;
+  const post = await fetch(POST_API_URL);
+  const postData = await post.json();
 
   return {
     props: {
       fallback: {
-        API_URL: userData,
+        USER_API_URL: userData,
+        POST_API_URL: postData,
       },
     },
   };
