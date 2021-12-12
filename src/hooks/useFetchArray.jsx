@@ -1,8 +1,8 @@
 import { fetcher } from "src/utills/fetcher";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
 export const useFetchArray = (url) => {
-  const { data, error } = useSWR(
+  const { data, error } = useSWRImmutable(
     url,
     fetcher
   );
