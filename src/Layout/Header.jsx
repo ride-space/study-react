@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "src/components/Header/Header.module.css";
+import styles from "src/Layout/Header.module.css";
 
 const NAV_ITEMS = [
   { href: "/", label: "Index" },

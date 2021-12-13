@@ -1,6 +1,5 @@
-import { Header } from "src/components/Header";
-import { User } from "src/components/User";
-import { API_URL } from "src/utills/const";
+import { UserDetail } from "src/components/User/UserDetail";
+import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
 
 //SSRを行う際、サーバー側で動くコード
@@ -12,7 +11,7 @@ export const getServerSideProps = async (ctx) => {
   const userData = await user.json();
   //userの投稿一覧のfetch
   const { id: postId } = ctx.query;
-  const POST_API_URL = `${API_URL}/posts?userId=${postId}`;
+  const POST_API_URL = `${API_URL}/users/${postId}/posts`;
   const post = await fetch(POST_API_URL);
   const postData = await post.json();
 
@@ -29,8 +28,7 @@ export const getServerSideProps = async (ctx) => {
 const UsersId = ({ fallback }) => {
   return (
     <SWRConfig value={{ fallback }}>
-      <Header />
-      <User />
+      <UserDetail />
     </SWRConfig>
   );
 };

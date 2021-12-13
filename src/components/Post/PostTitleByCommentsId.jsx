@@ -1,9 +1,10 @@
 import { useFetch } from "src/hooks/useFetch";
 import { API_URL } from "src/utils/const";
+import Link from "next/link";
 
-export const UserByUserId = (props) => {
+export const PostTitleByCommentsId = (props) => {
   const { data, error, isLoading } = useFetch(
-    props?.id ? `${API_URL}/users/${props.id}` : null
+    props.id ? `${API_URL}/posts/${props.id}` : null
   );
 
   if (isLoading) {
@@ -14,5 +15,9 @@ export const UserByUserId = (props) => {
     return <div>{error.message}</div>;
   }
 
-  return <div> Created by {data.name}.</div>;
+  return (
+    <Link href={`/posts/${data.id}`}>
+      <a>{data.title}</a>
+    </Link>
+  );
 };

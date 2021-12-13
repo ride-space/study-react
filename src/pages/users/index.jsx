@@ -1,7 +1,6 @@
 import Head from "next/dist/shared/lib/head";
-import { Header } from "src/components/Header";
-import { Users as UsersComponent } from "src/components/Users";
-import { API_URL } from "src/utills/const";
+import { UserList } from "src/components/User/UserList";
+import { API_URL } from "src/utils/const";
 import { SWRConfig } from "swr";
 
 export const getServerSideProps = async () => {
@@ -25,8 +24,7 @@ const Users = ({ fallback }) => {
       <Head>
         <title>Users</title>
       </Head>
-      <Header />
-      <UsersComponent />
+      <UserList />
     </SWRConfig>
   );
 };

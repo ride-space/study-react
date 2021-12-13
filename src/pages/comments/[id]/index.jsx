@@ -1,8 +1,7 @@
 import { useRouter } from "next/dist/client/router";
-import { Header } from "src/components/Header";
-import { Comment } from "src/components/Comment";
+import { CommentDetail } from "src/components/Comment/CommentDetail";
 import { SWRConfig } from "swr";
-import { API_URL } from "src/utills/const";
+import { API_URL } from "src/utils/const";
 
 //動的なページのSSG
 export const getStaticPaths = async () => {
@@ -16,7 +15,6 @@ export const getStaticPaths = async () => {
   return {
     paths,
     fallback: "blocking",
-    revalidate: 60,
   };
 };
 
@@ -52,8 +50,7 @@ const CommentsId = (props) => {
   return (
     <div>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <Comment />
+        <CommentDetail />
       </SWRConfig>
     </div>
   );

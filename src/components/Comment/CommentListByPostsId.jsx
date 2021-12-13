@@ -1,14 +1,16 @@
 import Link from "next/link";
+import { useFetchArray } from "src/hooks/useFetchArray";
 import { useCommentsByPostsId } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
 
-export const CommentsByPostsId = (props) => {
+export const CommentListByPostsId = (props) => {
   const {
     data,
     error,
     isLoading,
     isEmpty,
-  } = useCommentsByPostsId(props.id);
+  } = useFetchArray(props.id ?`${API_URL}/posts/${props.id}/comments`: null);
 
   if (isLoading) {
     return <div>ローディング中です。</div>;
@@ -17,7 +19,7 @@ export const CommentsByPostsId = (props) => {
     return <div>{error.message}</div>;
   }
   if (isEmpty) {
-    return <div>データはカラです</div>;
+    return <div>コメントはありません。</div>;
   }
 
   return (
