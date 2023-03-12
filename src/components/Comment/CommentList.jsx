@@ -22,7 +22,8 @@ export const CommentList = () => {
       {data.map((comments) => {
         return (
           <li key={comments.id}>
-            <Link href={`/comments/${comments.id}`}>
+            {/* prefetch={false}でSGのページでfallback : blockingの場合にhoverされたタイミングでbuildされるように変更 */}
+            <Link href={`/comments/${comments.id}`} prefetch={false}>
               <a>{comments.body}</a>
             </Link>
           </li>
